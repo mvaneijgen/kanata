@@ -1,7 +1,7 @@
 # Todo's
 
 - [ ] Run on startup
-- [ ] Media controls back to default F keys
+- [x] Media controls back to default F keys
 - [ ] Port over QMK keymap
 - [ ] Normal layers
 

@@ -31,7 +31,7 @@
 )
 
 (deflayer main
-  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  esc  🔅   🔆    ✗    ✗    ✗    ✗    ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊
   grv    1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab    q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps   @ctl_a    @alt_s    @gui_d    @sft_f    g    h    @sft_j    @gui_k    @alt_l    @ctl_smi    '    ret
