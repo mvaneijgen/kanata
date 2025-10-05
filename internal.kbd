@@ -1,0 +1,40 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab    q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps   a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft   z    x    c    v    b    n    m    ,    .    /    ▲   rsft
+  fn   lctl  lalt lmet          spc         rmet ralt ◀    ▼    ▶
+)
+(defvar
+  ;; Note: consider using different time values for your different fingers.
+  ;; For example, your pinkies might be slower to release keys and index
+  ;; fingers faster.
+  tap-time 200
+  hold-time 200 
+  hold-time-slow 300 
+)
+
+(defalias
+  ctl_a (tap-hold $tap-time $hold-time a lctl)
+  alt_s (tap-hold $tap-time $hold-time s lalt)
+  gui_d (tap-hold $tap-time $hold-time d lmet)
+  sft_f (tap-hold $tap-time $hold-time f lsft)
+  sft_j (tap-hold $tap-time $hold-time j rsft)
+  gui_k (tap-hold $tap-time $hold-time k rmet)
+  alt_l (tap-hold $tap-time $hold-time l ralt)
+  ctl_smi (tap-hold $tap-time $hold-time ; rctl)
+)
+
+(deflayer main
+  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab    q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps   @ctl_a    @alt_s    @gui_d    @sft_f    g    h    @sft_j    @gui_k    @alt_l    @ctl_smi    '    ret
+  lsft   z    x    c    v    b    n    m    ,    .    /    ▲   rsft
+  fn   lctl  lalt lmet          spc         rmet ralt ◀    ▼    ▶
+)
