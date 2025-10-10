@@ -29,23 +29,42 @@
   s (tap-hold $tap-time $hold-time s lalt)
   d (tap-hold $tap-time $hold-time d lmet)
   f (tap-hold $tap-time $hold-time f lsft)
+
   j (tap-hold $tap-time $hold-time j rsft)
   k (tap-hold $tap-time $hold-time k rmet)
   l (tap-hold $tap-time $hold-time l ralt)
+  \ (tap-hold $tap-time $hold-time-slow \ rctl)
+
+
+  ;; numsym Homerow mods
+  : (tap-hold $tap-time $hold-time-slow S-; lctl)
+  [ (tap-hold $tap-time $hold-time [ lalt)
+  bb (tap-hold $tap-time $hold-time S-9 lmet)
+  { (tap-hold $tap-time $hold-time S-[ lsft)
+  
+  } (tap-hold $tap-time $hold-time S-; rsft)
+  dd (tap-hold $tap-time $hold-time S-0 rmet)
+  ] (tap-hold $tap-time $hold-time ] ralt)
   ; (tap-hold $tap-time $hold-time-slow ; rctl)
 
-  ctl_colon (tap-hold $tap-time $hold-time-slow ; lctl)
-  alt_lbrace (tap-hold $tap-time $hold-time ; lalt)
-  gui_lparen (tap-hold $tap-time $hold-time ; lmet)
-  sft_lbracket (tap-hold $tap-time $hold-time ; lsft)
-  sft_rbracket (tap-hold $tap-time $hold-time ; rsft)
-  gui_rparen (tap-hold $tap-time $hold-time ; rmet)
-  alt_rbrace (tap-hold $tap-time $hold-time ; ralt)
-  ctl_semicolon (tap-hold $tap-time $hold-time-slow ; rctl)
+  ;; ctrl Homerow mods
+  ◀ (tap-hold $tap-time $hold-time ◀ lalt)
+  ▼ (tap-hold $tap-time $hold-time ▼ lmet)
+  ▶ (tap-hold $tap-time $hold-time ▶ lalt)
+
+  🔉 (tap-hold $tap-time $hold-time ◀ lalt)
+  ▶⏸ (tap-hold $tap-time $hold-time ◀ lalt)
+  🔊 (tap-hold $tap-time $hold-time ◀ lalt)
+  🔇 (tap-hold $tap-time $hold-time ◀ lalt)
+
+)
+(defalias ;; tap-dance
+  c (tap-dance $tap-time (c M-c))
+  v (tap-dance $tap-time (v M-v))
+  x (tap-dance $tap-time (x M-x))
 )
 
 (defalias ;; symbols
-
     < (tap-hold $tap-time $hold-time S-, lalt)
     ! (tap-hold $tap-time $hold-time S-1 lctl)
     min (tap-hold $tap-time $hold-time - lsft)
@@ -66,31 +85,34 @@
     % S-5
     at S-2
     § IntlBackslash
+
+    MS[ M-S-[
+    MS] M-S-]
 )
 
 (deflayer main
   esc      🔅      🔆      ✗       ✗       ✗       ✗      ◀◀       ▶⏸      ▶▶      🔇      🔉      🔊
   @§      1       2       3       4       5       6       7       8       9       0       -       =       bspc
   tab      q       w       e       r      t       y       u       i       o       p       [       ]
-  tab     @a      @s      @d      @f      g       h       @j      @k      @l      @;      '       \       ⏎
-  lsft     grv     z       x       c      v       b       n       m       ,       .       /       ▲       rsft
+  tab     @a      @s      @d      @f      g       h       @j      @k      @l      @\      '       \       ⏎
+  lsft     grv     z       @x       @c      @v       b       n       m       ,       .       /       ▲       rsft
   fn       lctl    ⌫    @num                      ␣                        @ctr    ⌦     ◀       ▼       ▶
 )
 
 (deflayer numsym
-  _      _      _      _       _       _       _      _       _      _      _      _      _
-  _      _      _      _       _       _       _      _       _      _      _      _      _      _
-  _      _      _      _       _       _       _      _       _      _      _      _      _
-  _      _      _      _       _       _       _      _       _      _      _      _      _      _
-  _      _      _      _       _       _       _      _       _      _      _      _      _      _
-  _      _      _      _                    _                    _      _      _      _      _
+  _       _       _       _       _       _       _       _        _        _        _       _       _
+  @§      _       _       _       _       _       _       _        _        _        _       _       _       _
+  _       1       2       3       4       5       6       7        8        9        0       _       _
+  _       @:      @[      @bb      @{      _       _       @}       @dd       @]       @;      _       _      _
+  _       _       _       _       _       _       _       _        _        _        _       _       _      _
+  _       _       _       _                    _                   _        _        _       _       _
 )
 
 (deflayer ctrl
   _      _      _      _       _       _       _      _       _      _      _      _      _
   _      _      _      _       _       _       _      _       _      _      _      _      _      _
-  _      _      _      _       _       _       _      _       _      _      _      _      _
-  _      _      _      _       _       _       _      _       _      _      _      _      _      _
-  _      _      _      _       _       _       _      _       _      _      _      _      _      _
+  _      _      _      ▲       _       _       _      @MS[      ◀◀      @MS]      _      _      _
+  _      @a      @◀      @▼       @▶       🔅      🔆     @🔉      @▶⏸    @🔊     @🔇     _      _      _
+  _      _      _      _       _       _       _      _       ◀◀     _      _      _      _      _
   _      _      _      _                    _                    _      _      _      _      _
 )
