@@ -4,10 +4,10 @@
 
 (defsrc
   esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  grv    1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab    q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps   a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft   z    x    c    v    b    n    m    ,    .    /    ▲   rsft
+  IntlBackslash      1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab    q    w    e    r    t    y    u    i    o    p    [    ]
+  caps   a    s    d    f    g    h    j    k    l    ;    '    \    ret
+  lsft   `  z    x    c    v    b    n    m    ,    .    /    ▲   rsft
   fn   lctl  lalt lmet          spc         rmet ralt ◀    ▼    ▶
 )
 (defvar
@@ -19,7 +19,12 @@
   hold-time-slow 300 
 )
 
-(defalias
+(defalias ;; layers
+    num (layer-toggle numsym)
+    ctr (layer-toggle ctrl)
+)
+
+(defalias ;; Homerow mods
   ctl_a (tap-hold $tap-time $hold-time a lctl)
   alt_s (tap-hold $tap-time $hold-time s lalt)
   gui_d (tap-hold $tap-time $hold-time d lmet)
@@ -28,13 +33,71 @@
   gui_k (tap-hold $tap-time $hold-time k rmet)
   alt_l (tap-hold $tap-time $hold-time l ralt)
   ctl_smi (tap-hold $tap-time $hold-time ; rctl)
+
+  a (tap-hold $tap-time $hold-time a lctl)
+  s (tap-hold $tap-time $hold-time s lalt)
+  d (tap-hold $tap-time $hold-time d lmet)
+  f (tap-hold $tap-time $hold-time f lsft)
+  j (tap-hold $tap-time $hold-time j rsft)
+  k (tap-hold $tap-time $hold-time k rmet)
+  l (tap-hold $tap-time $hold-time l ralt)
+  ; (tap-hold $tap-time $hold-time ; rctl)
+
+  ctl_colon (tap-hold $tap-time $hold-time ; lctl)
+  alt_lbrace (tap-hold $tap-time $hold-time ; lalt)
+  gui_lparen (tap-hold $tap-time $hold-time ; lmet)
+  sft_lbracket (tap-hold $tap-time $hold-time ; lsft)
+  sft_rbracket (tap-hold $tap-time $hold-time ; rsft)
+  gui_rparen (tap-hold $tap-time $hold-time ; rmet)
+  alt_rbrace (tap-hold $tap-time $hold-time ; ralt)
+  ctl_semicolon (tap-hold $tap-time $hold-time ; rctl)
+)
+
+(defalias ;; symbols
+    < (tap-hold $tap-time $hold-time S-, lalt)
+    ! (tap-hold $tap-time $hold-time S-1 lctl)
+    min (tap-hold $tap-time $hold-time - lsft)
+    = (tap-hold $tap-time $hold-time = lmet)
+    obrc (tap-hold $tap-time $hold-time S-9 rmet)
+    cbrc (tap-hold $tap-time $hold-time S-0 rsft)
+    ? (tap-hold $tap-time $hold-time S-/ rctl)
+    scol (tap-hold $tap-time $hold-time ; ralt)
+
+    > S-.
+    ^ S-6
+    # S-3
+    * S-8
+    $ S-4
+    & S-7
+    ~ S-grv
+    | S-\
+    % S-5
+    at S-2
 )
 
 (deflayer main
-  esc  🔅   🔆    ✗    ✗    ✗    ✗    ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊
-  grv    1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab    q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps   @ctl_a    @alt_s    @gui_d    @sft_f    g    h    @sft_j    @gui_k    @alt_l    @ctl_smi    '    ret
-  lsft   z    x    c    v    b    n    m    ,    .    /    ▲   rsft
-  fn   lctl  lalt lmet          spc         rmet ralt ◀    ▼    ▶
+  esc      🔅      🔆      ✗       ✗       ✗       ✗      ◀◀       ▶⏸      ▶▶      🔇      🔉      🔊
+  IntlBackslash      1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab      q       w       e       r       t       y       u       i       o       p       [       ]      
+  caps     @a      @s      @d      @f      g       h       @j      @k      @l      @;      '       \       ret
+  lsft     grv     z       x       c       v       b       n       m       ,       .       /       ▲       rsft
+  fn       lctl    lalt    @num                    spc                     @ctr    ralt    ◀       ▼       ▶
+)
+
+(deflayer numsym
+  esc      🔅      🔆      ✗       ✗       ✗       ✗      ◀◀       ▶⏸      ▶▶      🔇      🔉      🔊
+  IntlBackslash      1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab      q       w       e       r       t       y       u       i       o       p       [       ]      
+  caps     @a      @s      @d      @f      g       h       @j      @k      @l      @;      '       \       ret
+  lsft     grv     z       x       c       v       b       n       m       ,       .       /       ▲       rsft
+  fn       lctl    lalt    @num                    spc                     @ctr    ralt    ◀       ▼       ▶
+)
+
+(deflayer ctrl
+  esc      🔅      🔆      ✗       ✗       ✗       ✗      ◀◀       ▶⏸      ▶▶      🔇      🔉      🔊
+  IntlBackslash      1       2       3       4       5       6       7       8       9       0       -       =       bspc
+  tab      q       w       e       r       t       y       u       i       o       p       [       ]      
+  caps     @a      @s      @d      @f      g       h       @j      @k      @l      @;      '       \       ret
+  lsft     grv     z       x       c       v       b       n       m       ,       .       /       ▲       rsft
+  fn       lctl    lalt    @num                    spc                     @ctr    ralt    ◀       ▼       ▶
 )

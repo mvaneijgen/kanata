@@ -1,6 +1,6 @@
 # Todo's
 
-- [ ] Run on startup
+- [ ] Run only when just macbook
 - [x] Media controls back to default F keys
 - [ ] Port over QMK keymap
 - [ ] Normal layers
