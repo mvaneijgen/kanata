@@ -50,18 +50,19 @@
   ;; ctrl Homerow mods
   ◀ (tap-hold $tap-time $hold-time ◀ lalt)
   ▼ (tap-hold $tap-time $hold-time ▼ lmet)
-  ▶ (tap-hold $tap-time $hold-time ▶ lalt)
+  ▶ (tap-hold $tap-time $hold-time ▶ lsft)
 
-  🔉 (tap-hold $tap-time $hold-time ◀ lalt)
-  ▶⏸ (tap-hold $tap-time $hold-time ◀ lalt)
-  🔊 (tap-hold $tap-time $hold-time ◀ lalt)
-  🔇 (tap-hold $tap-time $hold-time ◀ lalt)
+  🔉 (tap-hold $tap-time $hold-time 🔉 lsft)
+  ▶⏸ (tap-hold $tap-time $hold-time ▶⏸ lmet)
+  🔊 (tap-hold $tap-time $hold-time 🔊 lalt)
+  🔇 (tap-hold $tap-time $hold-time 🔇 lctl)
 
 )
 (defalias ;; tap-dance
   c (tap-dance $tap-time (c M-c))
   v (tap-dance $tap-time (v M-v))
   x (tap-dance $tap-time (x M-x))
+  ␣ (tap-dance $tap-time (␣ ⏎))
 )
 
 (defalias ;; symbols
@@ -96,7 +97,7 @@
   tab      q       w       e       r      t       y       u       i       o       p       [       ]
   tab     @a      @s      @d      @f      g       h       @j      @k      @l      @\      '       \       ⏎
   lsft     grv     z       @x       @c      @v       b       n       m       ,       .       /       ▲       rsft
-  fn       lctl    ⌫    @num                      ␣                        @ctr    ⌦     ◀       ▼       ▶
+  fn       lctl    ⌫    @num                      @␣                        @ctr    ⌦     ◀       ▼       ▶
 )
 
 (deflayer numsym
