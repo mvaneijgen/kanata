@@ -1,5 +1,8 @@
 (defcfg
   process-unmapped-keys yes
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+  )
 )
 
 (defsrc
@@ -78,7 +81,9 @@
     > S-.
     ^ S-6
     # S-3
+    + S-=
     * S-8
+    _ S--
     $ S-4
     & S-7
     ~ S-grv
@@ -104,8 +109,8 @@
   _       _       _       _       _       _       _       _        _        _        _       _       _
   @§      _       _       _       _       _       _       _        _        _        _       _       _       _
   _       1       2       3       4       5       6       7        8        9        0       _       _
-  _       @:      @[      @bb      @{      _       _       @}       @dd       @]       @;      _       _      _
-  _       _       _       _       _       _       _       _        _        _        _       _       _      _
+  _       @:      @[      @bb      @{      '      '       @}       @dd       @]       @;      _       _      _
+  _       _       @at     @#       -       @$      =       @+        @&        .        @_      _       _       _
   _       _       _       _                    _                   _        _        _       _       _
 )
 
